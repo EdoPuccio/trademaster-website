@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TradeMaster - Corso Avanzato di Trading e Business</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1e3a8a',
+            secondary: '#d97706',
+            accent: '#2563eb',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+    }
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    .pricing-card:hover {
+      transform: scale(1.03);
+    }
+    .limited-badge {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 flex items-center">
+            <i class="fas fa-chart-line text-2xl text-primary mr-2"></i>
+            <span class="text-xl font-bold text-primary">TradeMaster</span>
+          </div>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#benefits" class="text-gray-700 hover:text-primary px-3 py-2 font-medium">Vantaggi</a>
+          <a href="#pricing" class="text-gray-700 hover:text-primary px-3 py-2 font-medium">Piani</a>
+          <a href="#how-it-works" class="text-gray-700 hover:text-primary px-3 py-2 font-medium">Come Funziona</a>
+          <a href="#faq" class="text-gray-700 hover:text-primary px-3 py-2 font-medium">FAQ</a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button id="menu-btn" class="text-gray-700 hover:text-primary focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#benefits" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Vantaggi</a>
+        <a href="#pricing" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Piani</a>
+        <a href="#how-it-works" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Come Funziona</a>
+        <a href="#faq" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">FAQ</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-gradient text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-block bg-secondary bg-opacity-20 px-4 py-2 rounded-full mb-4">
+            <span class="text-sm font-semibold text-white">POSTI LIMITATI</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            TradeMaster: Domina il Trading, Scaling del Business e Marketing con un Coach al Tuo Fianco!
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-100 mb-8">
+            Ogni 2 settimane, lezioni in presenza (or online) con esperti per accelerare i tuoi risultati. Trasforma teoria in pratica con un metodo collaudato.
+          </p>
+          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            <a href="#pricing" class="bg-white text-primary hover:bg-gray-100 font-bold py-4 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 text-center">
+              Prenota il Tuo Posto Ora
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+            <a href="#how-it-works" class="border-2 border-white text-white hover:bg-white hover:bg-opacity-10 font-bold py-4 px-8 rounded-lg text-lg transition duration-300 text-center">
+              Scopri di Più
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Coach che spiega grafici di trading" class="rounded-xl shadow-2xl border-4 border-white border-opacity-20 w-full h-auto">
+          <div class="absolute -bottom-6 -left-6 bg-white text-primary p-4 rounded-lg shadow-lg hidden md:block">
+            <div class="text-3xl font-bold">100%</div>
+            <div class="text-sm font-medium">Soddisfatti</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section id="benefits" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Perché Scegliere TradeMaster?</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Un approccio unico che combina formazione strutturata e mentoring personalizzato per risultati concreti.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Benefit 1 -->
+        <div class="benefit-card bg-white rounded-xl shadow-md p-8 transition duration-300">
+          <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-chalkboard-teacher text-3xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Lezioni Live Ogni 2 Settimane</h3>
+          <p class="text-gray-600">In presenza or online, per applicare subito ciò che impari. Niente corsi pre-registrati, ma interazione diretta con i coach.</p>
+        </div>
+        <!-- Benefit 2 -->
+        <div class="benefit-card bg-white rounded-xl shadow-md p-8 transition duration-300">
+          <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-hands-helping text-3xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Coach e Collaboratori Diretti</h3>
+          <p class="text-gray-600">Supporto reale da professionisti del settore. Domande, dubbi e strategie affrontate in tempo reale.</p>
+        </div>
+        <!-- Benefit 3 -->
+        <div class="benefit-card bg-white rounded-xl shadow-md p-8 transition duration-300">
+          <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-book-open text-3xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Materiale Pratico</h3>
+          <p class="text-gray-600">Workbook dettagliati, consigli di lettura personalizzati e sessioni su misura per le tue esigenze specifiche.</p>
+        </div>
+        <!-- Benefit 4 -->
+        <div class="benefit-card bg-white rounded-xl shadow-md p-8 transition duration-300">
+          <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-random text-3xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Flessibilità Totale</h3>
+          <p class="text-gray-600">Dai fondamenti del trading alla creazione di una startup. Scegli il percorso più adatto ai tuoi obiettivi.</p>
+        </div>
+        <!-- Benefit 5 -->
+        <div class="benefit-card bg-white rounded-xl shadow-md p-8 transition duration-300">
+          <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-chart-line text-3xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Progresso Lineare</h3>
+          <p class="text-gray-600">Evita errori comuni con un mentor al tuo fianco. Un percorso strutturato per risultati misurabili.</p>
+        </div>
+        <!-- Benefit 6 -->
+        <div class="benefit-card bg-white rounded-xl shadow-md p-8 transition duration-300">
+          <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-medal text-3xl text-primary"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Garanzia di Soddisfazione</h3>
+          <p class="text-gray-600">Soddisfatto o rimborsato entro 7 giorni. Investi con sicurezza nella tua formazione.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Scegli il Tuo Piano</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Investi nella tua formazione con piani flessibili e vantaggiosi. Sconti limitati disponibili!</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Basic Plan -->
+        <div class="pricing-card bg-white rounded-xl shadow-lg overflow-hidden transition duration-300">
+          <div class="bg-primary text-white px-6 py-4">
+            <h3 class="text-xl font-bold">Piano Base</h3>
+            <div class="flex items-end mt-2">
+              <span class="text-3xl font-bold">€10</span>
+              <span class="ml-2 text-gray-200 line-through">€15</span>
+              <span class="ml-2 text-sm text-gray-200">/mese</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>Accesso al corso per 1 mese</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>3 ore di lezioni on-demand</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>Contatto with coach e collaboratori</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>Workbook in PDF per ogni lezione</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>Libri e serie consigliate personalizzate</span>
+              </li>
+            </ul>
+            <div class="mt-8">
+              <a href="#" class="block w-full bg-primary hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg text-center transition duration-300 transform hover:scale-105">Scegli il Piano Base</a>
+            </div>
+          </div>
+        </div>
+        <!-- Premium Plan (Featured) -->
+        <div class="pricing-card bg-white rounded-xl shadow-2xl overflow-hidden transition duration-300 transform scale-105 border-2 border-secondary">
+          <div class="bg-secondary text-white px-6 py-4">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold">Piano Premium</h3>
+                <div class="flex items-end mt-2">
+                  <span class="text-3xl font-bold">€20</span>
+                  <span class="ml-2 text-gray-200 line-through">€30</span>
+                  <span class="ml-2 text-sm text-gray-200">/mese</span>
+                </div>
+              </div>
+              <div class="limited-badge bg-white text-secondary text-xs font-bold px-2 py-1 rounded-full">POPOLARE</div>
+            </div>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>Tutto il Piano Base +</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>1 sessione 1-on-1 di mentoring</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>1 sessione di marketing avanzato</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>1 sessione su startup</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>Supporto prioritario</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>Coach dedicato per dubbi e operazioni</span>
+              </li>
+            </ul>
+            <div class="mt-8">
+              <a href="#" class="block w-full bg-secondary hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-lg text-center transition duration-300 transform hover:scale-105">Scegli il Piano Premium</a>
+            </div>
+          </div>
+        </div>
+        <!-- Custom Plan -->
+        <div class="pricing-card bg-white rounded-xl shadow-lg overflow-hidden transition duration-300">
+          <div class="bg-gray-800 text-white px-6 py-4">
+            <h3 class="text-xl font-bold">Piano Custom</h3>
+            <div class="flex items-end mt-2">
+              <span class="text-3xl font-bold">Personalizzato</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>Sessioni extra su misura</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>Programmi personalizzati</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>Obiettivi specifici</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>Accesso diretto a coach e collaboratori</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>Supporto premium 24/7</span>
+              </li>
+            </ul>
+            <div class="mt-8">
+              <a href="#" class="block w-full bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg text-center transition duration-300 transform hover:scale-105">Contattaci per un Piano Personalizzato</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-12 text-center">
+        <p class="text-gray-600"><i class="fas fa-lock text-primary mr-2"></i> Pagamenti sicuri con carta di credito, PayPal o bonifico bancario.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Come Funziona TradeMaster</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Un processo semplice per risultati straordinari. Ecco come iniziare il tuo percorso:</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Step 1 -->
+        <div class="text-center">
+          <div class="w-20 h-20 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="text-3xl font-bold text-primary">1</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Iscrizione</h3>
+          <p class="text-gray-600">Scegli il piano più adatto alle tue esigenze and completa la registrazione in pochi minuti.</p>
+        </div>
+        <!-- Step 2 -->
+        <div class="text-center">
+          <div class="w-20 h-20 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="text-3xl font-bold text-primary">2</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Accesso Immediato</h3>
+          <p class="text-gray-600">Ricevi subito il workbook e i materiali per iniziare a familiarizzare con i concetti.</p>
+        </div>
+        <!-- Step 3 -->
+        <div class="text-center">
+          <div class="w-20 h-20 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="text-3xl font-bold text-primary">3</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Lezioni Live</h3>
+          <p class="text-gray-600">Ogni 2 settimane, partecipa alle sessioni in presenza or online con i nostri esperti.</p>
+        </div>
+        <!-- Step 4 -->
+        <div class="text-center">
+          <div class="w-20 h-20 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="text-3xl font-bold text-primary">4</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Supporto Costante</h3>
+          <p class="text-gray-600">Mentor sempre disponibile per chiarire dubbi and affinare le tue strategie.</p>
+        </div>
+      </div>
+      <div class="mt-16 bg-primary bg-opacity-5 rounded-xl p-8 md:p-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Pronto a Trasformare la Tua Carriera?</h3>
+            <p class="text-gray-600 mb-6">I posti per le sessioni in presenza sono limitati per garantire la massima qualità dell'esperienza. Iscriviti oggi per assicurarti lo sconto e il posto nella prossima sessione.</p>
+            <a href="#pricing" class="inline-block bg-primary hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
+              Inizia Ora con TradeMaster
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+          <div class="hidden md:block">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Persone che lavorano insieme" class="rounded-lg shadow-lg w-full h-auto">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Domande Frequenti</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Tutte le risposte alle domande più comuni su TradeMaster.</p>
+      </div>
+      <div class="space-y-6">
+        <!-- FAQ 1 -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden">
+          <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 focus:outline-none">
+            <h3 class="text-lg font-medium text-gray-900">Cosa succede se non posso partecipare a una lezione in presenza?</h3>
+            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6">
+            <p class="text-gray-600">Nessun problema! Tutte le lezioni in presenza vengono registrate e rese disponibili nella tua area riservata per 30 giorni. Inoltre, su richiesta possiamo organizzare una sessione online alternativa.</p>
+          </div>
+        </div>
+        <!-- FAQ 2 -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden">
+          <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 focus:outline-none">
+            <h3 class="text-lg font-medium text-gray-900">Posso passare da Base a Premium dopo?</h3>
+            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6">
+            <p class="text-gray-600">Assolutamente sì! Puoi effettuare l'upgrade in qualsiasi momento dalla tua area personale. Il costo verrà adeguato proporzionalmente al periodo rimanente del tuo abbonamento.</p>
+          </div>
+        </div>
+        <!-- FAQ 3 -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden">
+          <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 focus:outline-none">
+            <h3 class="text-lg font-medium text-gray-900">C'è una garanzia di soddisfazione?</h3>
+            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6">
+            <p class="text-gray-600">Sì, offriamo una garanzia "Soddisfatto o Rimborsato" entro 7 giorni dall'acquisto. Se per qualsiasi motivo non sei contento del servizio, ti rimborseremo l'intero importo senza fare domande.</p>
+          </div>
+        </div>
+        <!-- FAQ 4 -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden">
+          <button class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 focus:outline-none">
+            <h3 class="text-lg font-medium text-gray-900">Quanto tempo devo dedicare al corso?</h3>
+            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content hidden px-6 pb-6">
+            <p class="text-gray-600">Consigliamo almeno 4-6 ore a settimana per ottenere risultati ottimali. Questo include le lezioni live (circa 2 ore ogni 2 settimane), lo studio del materiale e l'applicazione pratica. Tuttavia, il corso è progettato per essere flessibile e adattarsi ai tuoi impegni.</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-16 text-center">
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Altre domande?</h3>
+        <p class="text-gray-600 mb-6 max-w-2xl mx-auto">Il nostro team è disponibile per chiarire ogni tuo dubbio e aiutarti a scegliere il percorso più adatto alle tue esigenze.</p>
+        <a href="#" class="inline-block bg-primary hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">Contattaci <i class="fas fa-envelope ml-2"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-primary text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Pronto a Trasformare la Tua Carriera?</h2>
+      <p class="text-xl text-gray-100 mb-8 max-w-3xl mx-auto">Posti limitati per le sessioni in presenza! Iscriviti oggi e blocca lo sconto.</p>
+      <a href="#pricing" class="inline-block bg-white text-primary hover:bg-gray-100 font-bold py-4 px-12 rounded-lg text-lg transition duration-300 transform hover:scale-105">Inizia Ora con TradeMaster <i class="fas fa-arrow-right ml-2"></i></a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div class="flex items-center mb-4">
+            <i class="fas fa-chart-line text-2xl text-primary mr-2"></i>
+            <span class="text-xl font-bold">TradeMaster</span>
+          </div>
+          <p class="text-gray-400">Il corso avanzato di trading, marketing e business che combina formazione online e lezioni in presenza con coach esperti.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contatti</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <i class="fas fa-envelope text-primary mr-2"></i>
+              <span class="text-gray-400">help.trademaster@gmail.com</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+              <span class="text-gray-400">Torino, Italia</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Seguici</h3>
+          <div class="flex space-x-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-primary flex items-center justify-center transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2023 TradeMaster. Tutti i diritti riservati.</p>
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-white text-sm transition">Termini di Servizio</a>
+          <a href="#" class="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a>
+          <a href="#" class="text-gray-400 hover:text-white text-sm transition">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // FAQ toggle functionality
+    const faqToggles = document.querySelectorAll('.faq-toggle');
+    faqToggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        const icon = this.querySelector('i');
+        content.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+      });
+    });
+
+    // Countdown timer for urgency (example)
+    function updateCountdown() {
+      const now = new Date();
+      const endOfDay = new Date();
+      endOfDay.setHours(23, 59, 59, 999);
+      const diff = endOfDay - now;
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+    }
+
+    // Initialize countdown and update every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          // Close mobile menu if open
+          const mobileMenu = document.getElementById('mobile-menu');
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
